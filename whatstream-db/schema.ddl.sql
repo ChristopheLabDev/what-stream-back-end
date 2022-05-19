@@ -1,3 +1,9 @@
+/*sudo psql -h localhost -p 5432 -U postgres
+--\i database.ddl.sql
+--\i schema.ddl.sql
+\i data.dml.sql*/
+
+
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS directors;
 DROP TABLE IF EXISTS actors;
@@ -19,24 +25,24 @@ CREATE TABLE categories(
  
  CREATE TABLE kinds(
 	id SERIAL PRIMARY KEY,
-	name varchar (30) NOT NULL
+	name varchar (70) NOT NULL
  	);
  	
  		CREATE TABLE content(
 	id SERIAL PRIMARY KEY,
-	name varchar (60) NOT NULL,
-	description varchar (60) NOT NULL,
-	author varchar (60) NOT NULL,
-	picturelink varchar (60),
-	releasedate varchar (4),
+	name varchar (70) NOT NULL,
+	description varchar (255) NOT NULL,
+	author varchar (70) NOT NULL,
+	picturelink varchar (255),
+	releasedate date,
 	duration integer NOT NULL,
 	rate integer NOT NULL
 	);
 	
 	 CREATE TABLE artists(
 	id SERIAL PRIMARY KEY,
-	firstname varchar (30) NOT NULL,
-	lastname varchar (30) NOT NULL
+	firstname varchar (100) NOT NULL,
+	lastname varchar (100) NOT NULL
  	);
  	
  CREATE TABLE actors(
@@ -63,9 +69,9 @@ CREATE TABLE categories(
 	
 CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
-	pseudo varchar (30) NOT NULL,
-	username varchar (60) NOT NULL,
-	password varchar (60) NOT NULL,
+	pseudo varchar (70) NOT NULL,
+	username varchar (255) NOT NULL,
+	password varchar (255) NOT NULL,
 	roles_id INTEGER,
 	CONSTRAINT fk_roles_id
     	FOREIGN KEY (roles_id)

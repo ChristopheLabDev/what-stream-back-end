@@ -19,6 +19,6 @@ INSERT INTO kinds (name) values
 ('science-fiction'),
 ('comédie romantique');
 INSERT INTO content (name, description, author, picturelink, releasedate, duration, rate) values
-('The Revenant', 'La vengeance d un pere dont le fils a ete tue', 'Christophe', '', 2015, 156, 5),
-('Interstellar', 'Space Opera', 'Christophe', 'asset/images/content/interstellar.jpg', 2014, 169, 5),
-('Inception', 'Bracage de haut vol dans la psyche', 'Christophe', '', 2010, 147, 5)
+('The Revenant', 'La vengeance d un pere dont le fils a ete tue', 'Christophe', null, '2022-05-19', 156, 5),
+('Interstellar', 'Space Opera', 'Christophe', 'asset/images/content/interstellar.jpg', '2014-11-05', 169, 5),
+('Inception', 'Bracage de haut vol dans la psyche', 'Christophe', null, '2010-07-21', 147, 5)
