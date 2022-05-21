@@ -6,7 +6,9 @@ public class ContentCreate {
 
     private String description;
 
-    private String duration;
+    private String author;
+
+    private int duration;
 
     public ContentCreate() {
 	// Default no-arg constructor
@@ -28,11 +30,20 @@ public class ContentCreate {
 	this.description = description;
     }
 
-    public String getDuration() {
+    public String getAuthor() {
+	return author;
+    }
+
+    public void setAuthor(String author) {
+	this.author = author;
+    }
+
+    public int getDuration() {
 	return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
 	this.duration = duration;
     }
+
 }

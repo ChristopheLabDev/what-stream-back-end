@@ -36,7 +36,7 @@ CREATE TABLE categories(
 	picturelink varchar (255),
 	releasedate date,
 	duration integer NOT NULL,
-	rate integer NOT NULL
+	rate integer
 	);
 	
 	 CREATE TABLE artists(

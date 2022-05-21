@@ -8,6 +8,7 @@ import co.simplon.whatstream.dtos.ContentCard;
 import co.simplon.whatstream.dtos.ContentCreate;
 import co.simplon.whatstream.dtos.ContentName;
 import co.simplon.whatstream.dtos.ContentTableItem;
+import co.simplon.whatstream.entities.Content;
 import co.simplon.whatstream.repositories.ContentRepository;
 
 @Service
@@ -39,7 +40,12 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public void create(ContentCreate inputs) {
-	// TODO Auto-generated method stub
+	Content content = new Content();
+	content.setName(inputs.getName());
+	content.setDescription(inputs.getDescription());
+	content.setAuthor(inputs.getAuthor());
+	content.setDuration(inputs.getDuration());
+	repository.save(content);
 
     }
 
