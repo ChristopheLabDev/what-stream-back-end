@@ -9,11 +9,13 @@ import co.simplon.whatstream.dtos.ContentTableItem;
 
 public interface ContentService {
 
-    List<ContentName> findNames();
-
-    List<ContentTableItem> findTableItems();
-
-    List<ContentCard> findCards();
+    /*
+     * List<ContentName> findNames();
+     * 
+     * List<ContentTableItem> findTableItems();
+     * 
+     * List<ContentCard> findCards();
+     */
 
     void create(ContentCreate inputs);
 }
