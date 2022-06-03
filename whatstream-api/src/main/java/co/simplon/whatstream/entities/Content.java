@@ -23,9 +23,6 @@ public class Content {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "author")
-    private String author;
-
     @Column(name = "picturelink")
     private String picturelink;
 
@@ -66,14 +63,6 @@ public class Content {
 	this.description = description;
     }
 
-    public String getAuthor() {
-	return author;
-    }
-
-    public void setAuthor(String author) {
-	this.author = author;
-    }
-
     public String getPicturelink() {
 	return picturelink;
     }
@@ -108,9 +97,8 @@ public class Content {
 
     @Override
     public String toString() {
-	return "Content [id=" + id + ", name=" + name + ", description=" + description + ", author=" + author
-		+ ", picturelink=" + picturelink + ", releasedate=" + releasedate + ", duration=" + duration + ", rate="
-		+ rate + "]";
+	return "Content [id=" + id + ", name=" + name + ", description=" + description + ", picturelink=" + picturelink
+		+ ", releasedate=" + releasedate + ", duration=" + duration + ", rate=" + rate + "]";
     }
 
 }

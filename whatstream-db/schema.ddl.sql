@@ -1,14 +1,15 @@
-/*sudo psql -h localhost -p 5432 -U postgres
+/*sudo psql -h localhost -p 5432 -U postgres -d whatstream_project
 --\i database.ddl.sql
 --\i schema.ddl.sql
-\i data.dml.sql*/
+\i data.dml.sql
+*/
 
 
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS directors;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS artists;
 DROP TABLE IF EXISTS content;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS kinds;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS roles;
@@ -28,21 +29,36 @@ CREATE TABLE categories(
 	name varchar (70) NOT NULL
  	);
  	
- 		CREATE TABLE content(
+ 	CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
-	name varchar (70) NOT NULL,
+	pseudo varchar (70) NOT NULL,
+	username varchar (255) NOT NULL,
+	password varchar (255) NOT NULL,
+	roles_id INTEGER,
+	CONSTRAINT fk_roles_id
+    	FOREIGN KEY (roles_id)
+    	REFERENCES roles(id)
+	);
+	
+ 	CREATE TABLE content(
+	id SERIAL PRIMARY KEY,
+	name varchar (255) NOT NULL,
 	description varchar (255) NOT NULL,
-	author varchar (70) NOT NULL,
 	picturelink varchar (255),
 	releasedate date,
 	duration integer NOT NULL,
-	rate integer
+	rate integer,
+	users_id INTEGER,
+	CONSTRAINT fk_users_id
+    	FOREIGN KEY (users_id)
+    	REFERENCES users(id)
 	);
 	
 	 CREATE TABLE artists(
 	id SERIAL PRIMARY KEY,
-	firstname varchar (100) NOT NULL,
-	lastname varchar (100) NOT NULL
+	firstname varchar (150) NOT NULL,
+	lastname varchar (150) NOT NULL,
+	birthday date,
  	);
  	
  CREATE TABLE actors(
@@ -67,15 +83,6 @@ CREATE TABLE categories(
     	REFERENCES content(id)
  	);
 	
-CREATE TABLE users(
-	id SERIAL PRIMARY KEY,
-	pseudo varchar (70) NOT NULL,
-	username varchar (255) NOT NULL,
-	password varchar (255) NOT NULL,
-	roles_id INTEGER,
-	CONSTRAINT fk_roles_id
-    	FOREIGN KEY (roles_id)
-    	REFERENCES roles(id)
-	);
+
 	
 

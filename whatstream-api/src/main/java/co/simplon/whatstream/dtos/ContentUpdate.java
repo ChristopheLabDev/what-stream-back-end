@@ -2,7 +2,7 @@ package co.simplon.whatstream.dtos;
 
 import java.time.LocalDate;
 
-public class ContentCreate {
+public class ContentUpdate {
 
     private String name;
 
@@ -16,7 +16,7 @@ public class ContentCreate {
 
     private int rate;
 
-    public ContentCreate() {
+    public ContentUpdate() {
 	// Default no-arg constructor
     }
 

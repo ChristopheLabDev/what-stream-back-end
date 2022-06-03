@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 		.antMatchers("/users/**").permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/content/records").hasRole("ADMIN").and().authorizeRequests()
+
 		.anyRequest().authenticated().and().oauth2ResourceServer().jwt();
     }
 
