@@ -42,8 +42,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 		.antMatchers("/users/**").permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/content/records").hasRole("ADMIN").and().authorizeRequests()
-
-		.anyRequest().authenticated().and().oauth2ResourceServer().jwt();
+		.antMatchers(HttpMethod.GET, "/content/my-contents").hasRole("ADMIN").and().authorizeRequests()
+		.antMatchers(HttpMethod.PUT, "/content/{id}").hasRole("ADMIN").and().authorizeRequests()
+		.antMatchers(HttpMethod.DELETE, "/content/{id}").hasRole("ADMIN").and().authorizeRequests()
+		.antMatchers(HttpMethod.GET, "/content/{id}").hasRole("ADMIN").and().authorizeRequests().anyRequest()
+		// .antMatchers(HttpMethod.PUT,
+		// "/content/{id}").hasRole("ADMIN").and().authorizeRequests().anyRequest()
+		.authenticated().and().oauth2ResourceServer().jwt();
     }
 
     @Bean
